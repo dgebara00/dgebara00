@@ -77,14 +77,9 @@ var dawid = new Developer
   </tr>
 </table>
 
-### 📌 Open source &amp; side projects
+### 📌 Open source
 
-<p>
-  <a href="https://github.com/livechat/chat-widget-adapters"><img src="./profile/pin-chat-widget-adapters.svg" width="49%" alt="livechat/chat-widget-adapters"></a>
-  <a href="https://github.com/dgebara00/nike-ecommerce"><img src="./profile/pin-nike-ecommerce.svg" width="49%" alt="nike-ecommerce"></a>
-  <a href="https://github.com/dgebara00/YC-Directory-NEXT-15-"><img src="./profile/pin-yc-directory.svg" width="49%" alt="YC Directory (Next.js 15)"></a>
-  <a href="https://github.com/dgebara00/node-learning"><img src="./profile/pin-node-learning.svg" width="49%" alt="node-learning"></a>
-</p>
+<a href="https://github.com/livechat/chat-widget-adapters"><img src="./profile/pin-chat-widget-adapters.svg" width="49%" alt="livechat/chat-widget-adapters"></a>
 
 ### 📊 Languages
 
