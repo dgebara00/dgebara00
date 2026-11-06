@@ -1,0 +1,47 @@
+name: Update README cards
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # codziennie ~4:17 czasu PL
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "profile/**"
+
+permissions:
+  contents: write
+
+env:
+  # wspólny wygląd wszystkich kafelków: przezroczyste tło, działa w jasnym i ciemnym motywie GitHuba
+  LOOK: hide_border=true&bg_color=00000000&title_color=D9A406&text_color=7D8590&icon_color=D9A406
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Top languages
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=8&card_width=420&exclude_repo=challenge1,challenge2,challenge3,challenge4,VoiceStudio,starter-express-api&${{ env.LOOK }}
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pin – chat-widget-adapters
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=livechat&repo=chat-widget-adapters&${{ env.LOOK }}
+          path: profile/pin-chat-widget-adapters.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          git commit -m "chore: update README cards" || exit 0
+          git push
